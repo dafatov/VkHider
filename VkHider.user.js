@@ -10,7 +10,7 @@
 // @grant        none
 // ==/UserScript==
 
-const debug = true;
+const debug = false;
 var shit;
 
 function log(log) {
