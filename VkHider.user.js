@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VkHider
 // @namespace    http://vk.com/
-// @version      0.2
+// @version      1.0
 // @description  Delete shit from vk.com
 // @author       dafatov
 // @match        https://vk.com/im*
