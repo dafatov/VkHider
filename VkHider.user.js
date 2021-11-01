@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VkHider
 // @namespace    http://vk.com/
-// @version      1.0
+// @version      1.1
 // @description  Delete shit from vk.com
 // @author       dafatov
 // @match        https://vk.com/im*
@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 const debug = false;
-var shit;
+let shit;
 
 function log(log) {
     if (!debug) {
@@ -19,15 +19,15 @@ function log(log) {
     }
 }
 
-var omMutate = function(mutationsList) {
+let omMutate = function(mutationsList) {
     shit = document.querySelector("#im_dialogs > ul");
     if (shit == null || shit.style.display == 'none') return;
     log(mutationsList);
 
-    for (var i=0; i < mutationsList.length; i++) {
-        var addedNodes = mutationsList[i].addedNodes[0];
+    for (let i=0; i < mutationsList.length; i++) {
+        let addedNodes = mutationsList[i].addedNodes[0];
         if (addedNodes) {
-            var attr = addedNodes.getAttribute('data-list-id');
+            let attr = addedNodes.getAttribute('data-list-id');
             if (attr) {
                 shit.style.display = 'none';
                 log("shit noned mutateble");
@@ -38,9 +38,9 @@ var omMutate = function(mutationsList) {
 
 function doSmth() {
     shit = document.querySelector("#im_dialogs > ul");
-    var container = document.querySelector("body");
+    let container = document.querySelector("body");
 
-    var observer = new MutationObserver(omMutate);
+    let observer = new MutationObserver(omMutate);
     observer.observe(container, { attributes: true, childList: true, subtree: true, characterData: true,
     characterDataOldValue: true });
     shit.style.display = 'none';
